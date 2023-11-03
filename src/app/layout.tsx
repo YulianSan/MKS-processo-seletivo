@@ -1,3 +1,5 @@
+import { Global } from '@/components/layout/Global'
+import { Header } from '@/components/layout/Header'
 import type { Metadata } from 'next'
 import { Montserrat } from 'next/font/google'
 
@@ -14,8 +16,12 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={montserrat.className}>{children}</body>
+    <html lang="pt-BR" className={montserrat.className}>
+      <Global />
+      <body>
+        <Header />
+        {children}
+      </body>
     </html>
   )
 }
