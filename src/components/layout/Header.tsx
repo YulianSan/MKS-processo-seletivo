@@ -1,13 +1,18 @@
 "use client";
+import { FaShoppingCart } from 'react-icons/fa'
 import * as S from "@/styled/layout/Header"
 
 export function Header() {
     return (
         <S.Container>
             <S.ContainerTitle>
-                <S.Title>MKS</S.Title>
-                <S.SubTitle>Sistemas</S.SubTitle>
+                <h1>MKS</h1>
+                <span>Sistemas</span>
             </S.ContainerTitle>
+            <S.CartButton>
+                <FaShoppingCart />
+                <span>0</span>
+            </S.CartButton>
         </S.Container>
     )
 }
