@@ -11,5 +11,6 @@ export const GlobalStyled = createGlobalStyle`
     --bg-secondary: #373737;
     --text-primary: #FFFFFF;
     --text-secondary: #2C2C2C;
+    --radius: 0.5rem;
 }
 `
