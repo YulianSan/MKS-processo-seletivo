@@ -5,7 +5,7 @@ export const Container = styled(S.Container).attrs({ as: 'header' })`
     height: 6.25rem;
     display: flex;
     align-items: center;
-    padding-inline: 5rem;
+    padding-inline: 4rem;
     justify-content: space-between;
 `
 
