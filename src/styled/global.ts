@@ -12,5 +12,6 @@ export const GlobalStyled = createGlobalStyle`
     --text-primary: #FFFFFF;
     --text-secondary: #2C2C2C;
     --radius: 0.5rem;
+    --radius-sm: 0.313rem;
 }
 `
