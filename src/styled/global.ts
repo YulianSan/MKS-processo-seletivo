@@ -7,8 +7,13 @@ export const GlobalStyled = createGlobalStyle`
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
     text-rendering: optimizeSpeed;
+    border: none;
 }
 
+button {
+    cursor: pointer;
+    background-color: transparent;
+}
 :root {
     --bg-primary: #0F52BA;
     --bg-secondary: #373737;
