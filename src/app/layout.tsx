@@ -1,5 +1,6 @@
 import { Global } from '@/components/layout/Global'
 import { Header } from '@/components/layout/Header'
+import { ReactQuery } from '@/contexts/ReactQuery'
 import type { Metadata } from 'next'
 import { Montserrat } from 'next/font/google'
 
@@ -9,6 +10,7 @@ export const metadata: Metadata = {
   title: 'MKS - ',
   description: 'Loja MKS',
 }
+
 
 export default function RootLayout({
   children,
@@ -20,7 +22,9 @@ export default function RootLayout({
       <Global />
       <body>
         <Header />
-        {children}
+        <ReactQuery>
+          { children }
+        </ReactQuery>
       </body>
     </html>
   )
