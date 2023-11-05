@@ -6,10 +6,12 @@ export const Container = styled.div`
     display: flex;
     column-gap: 1.75rem;
     position: relative;
+    justify-content: space-between;
     align-content: center;
     width: 100%;
     max-height: 6rem;
     padding: 1.1rem;
+    padding-right: 3rem;
     color: #000000;
 `
 
@@ -27,6 +29,7 @@ export const Title = styled.div`
     align-items: center;
     color: var(--text-secondary);
     font-size: 0.813rem;
+    width: 7rem;
 `
 
 export const ContainerQuantity = styled.div`
@@ -34,6 +37,7 @@ export const ContainerQuantity = styled.div`
     flex-direction: column;
     justify-content: center;
     & .input {
+        height: 1.25rem;
         position: relative;
         display: flex;
         column-gap: 0.2rem;
@@ -48,12 +52,17 @@ export const ContainerQuantity = styled.div`
             font-size: 0.4rem;
         }
         input {
+            text-align: center;
+            font-size: 0.5rem;
             border: none;
             outline: none;
             width: 1rem;
         }
         button {
-            padding: 0.1rem;
+            padding-inline: 0.3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             &:last-of-type {
                 border-left: 1px solid #BFBFBF;
             }
@@ -62,4 +71,18 @@ export const ContainerQuantity = styled.div`
             }
         }
     }
+`
+
+export const ContainerButtonClose = styled.div`
+    position: absolute;
+    left: 100%;
+    bottom: 100%;
+    transform: translate(-60%, 60%);
+`
+
+export const Price = styled.span`
+    font-size: 0.875rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
 `
