@@ -27,13 +27,24 @@ export function Header() {
                 </S.CartButton>
             </S.Container>
             <MenuCart
+                total={products.reduce(
+                    (acc, product) =>
+                        acc + (Number(product.price) * product.quantity)
+                    , 0
+                )}
                 isOpen={isOpen}
                 close={() => setIsOpen(false)}
                 title="Carrinho de compras"
                 action="Finalizar Compra"
             >
                 {products.map(
-                    product => (<CardCart key={`${product.id}s`} {...product} />),
+                    product => (
+                        <CardCart
+                            key={`${product.id}s`}
+                            removeProduct={removeProduct}
+                            setQuantity={updateQuantity}
+                            {...product} />
+                    ),
                 )}
             </MenuCart>
         </>

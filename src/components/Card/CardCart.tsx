@@ -2,14 +2,20 @@ import * as S from '@/styled/components/CardCart'
 import Image from 'next/image'
 import { ButtonClose } from '../Button/ButtonClose'
 
+type PropsCardCart = {
+	removeProduct: (id: number) => void
+	setQuantity: (id: number, quantity: number) => void
+} & IProductStorage
+
 export function CardCart({
 	id,
 	image,
 	price,
 	title,
 	quantity,
-	description,
-}: IProductStorage) {
+	removeProduct,
+	setQuantity,
+}: PropsCardCart) {
 	return (
 		<S.Container>
 			<S.ContainerImage>
@@ -25,12 +31,24 @@ export function CardCart({
 			<S.ContainerQuantity>
 				<div className="input">
 					<label>Qte</label>
-					<button>+</button>
-					<input value={quantity} />
-					<button>-</button>
+					<button onClick={() => setQuantity(id, quantity - 1)}>-</button>
+					<input
+						onChange={({ target: { value } }) => setQuantity(id, Number(value))}
+						value={quantity} />
+					<button onClick={() => setQuantity(id, quantity + 1)}>+</button>
 				</div>
 			</S.ContainerQuantity>
-			<ButtonClose close={() => { }} />
+			<S.ContainerButtonClose>
+				<ButtonClose
+					fontSize='0.875rem'
+					close={() => removeProduct(id)} />
+			</S.ContainerButtonClose>
+			<S.Price>
+				{Number(price).toLocaleString('pt-br', {
+					currency: 'BRL',
+					style: 'currency',
+				})}
+			</S.Price>
 		</S.Container>
 	)
 }
