@@ -8,7 +8,7 @@ interface PropsButtonClose {
 
 export function ButtonClose({ close, fontSize = '1.5rem' }: PropsButtonClose) {
 	return (
-		<S.ButtonClose onClick={close}>
+		<S.ButtonClose $fontSize={fontSize} onClick={close}>
 			<AiOutlineClose />
 		</S.ButtonClose>
 	)
