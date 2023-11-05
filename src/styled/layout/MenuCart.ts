@@ -17,6 +17,13 @@ export const Container = styled.div<IContainer>`
     color: var(--text-primary);
 `
 
+export const Body = styled.div`
+    display: flex;
+    padding: 1.375rem;
+    flex-direction: column;
+    row-gap: 1.5rem;
+`
+
 export const Header = styled.div`
     display: flex;
     padding: 1.375rem;

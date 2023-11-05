@@ -1,25 +1,28 @@
-"use client";
-import { AiOutlineClose } from 'react-icons/ai'
 import * as S from '@/styled/layout/MenuCart'
+import { ButtonClose } from '../Button/ButtonClose'
 
 interface PropsMenuCart {
     isOpen: boolean
     close: () => void
+    children: React.ReactNode
+    title: string
+    action: string
 }
 
-export function MenuCart({ isOpen, close }: PropsMenuCart) {
+export function MenuCart({ isOpen, close, title, action, children }: PropsMenuCart) {
     return (
-        <S.Container $isOpen={ isOpen }>
+        <S.Container $isOpen={isOpen}>
             <S.Header>
                 <span className="title">
-                    Carrinhode compras
+                    {title}
                 </span>
-                <button className="btn-close" onClick={close}>
-                    <AiOutlineClose />
-                </button>
+                <ButtonClose close={close} />
             </S.Header>
+            <S.Body>
+                {children}
+            </S.Body>
             <S.Footer>
-                <span>Finalizar Compra</span>
+                <span>{action}</span>
             </S.Footer>
         </S.Container>
     )
