@@ -6,9 +6,16 @@ declare global {
 		photo: string
 		name: string
 		description: string
-		price: number
+		price: string
 		brand: string
 		createdAt: string
 		updatedAt: string
+	}
+	interface IProductStorage {
+		id: number
+		quantity: number
+		name: string
+		description: string
+		price: string
 	}
 }
