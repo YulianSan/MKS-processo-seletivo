@@ -28,7 +28,7 @@ export const useCartContext = create<ICartContext>()(
       updateProductQuantity: (id, quantity) => set(state => ({
         products: state.products.map(productCart => {
           return id === productCart.id
-            ? { ...productCart, quantity: productCart.quantity + quantity }
+            ? { ...productCart, quantity: quantity }
             : productCart
         })
       }))
