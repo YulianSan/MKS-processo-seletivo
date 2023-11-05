@@ -11,7 +11,8 @@ export const Container = styled.div<IContainer>`
     top: 0;
     right: 0;
     z-index: 1000;
-    width: 30rem;
+    max-width: min(30rem, 90%);
+    width: 100%;
     height: 100vh;
     box-shadow: -5px 0px 6px 0px rgba(0, 0, 0, 0.13);
     color: var(--text-primary);
