@@ -14,7 +14,8 @@ declare global {
 	interface IProductStorage {
 		id: number
 		quantity: number
-		name: string
+		image: string,
+		title: string
 		description: string
 		price: string
 	}
