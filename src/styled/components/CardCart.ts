@@ -11,8 +11,15 @@ export const Container = styled.div`
     width: 100%;
     max-height: 6rem;
     padding: 1.1rem;
-    padding-right: 3rem;
     color: #000000;
+    @media (width <= 375px) {
+        flex-direction: column;
+        max-height: none;
+        row-gap: 0.75rem;
+    }
+    @media (width > 375px) {
+        padding-right: 3rem;
+    }
 `
 
 export const ContainerImage = styled.div`
@@ -22,14 +29,22 @@ export const ContainerImage = styled.div`
         height: 100%;
         object-fit: contain;
     }
+    @media (width <= 375px) {
+        aspect-ratio: none;
+        max-height: 6rem;
+    }
 `
 
 export const Title = styled.div`
     display: flex;
     align-items: center;
+    justify-content: center;
     color: var(--text-secondary);
-    font-size: 0.813rem;
-    width: 7rem;
+    font-size: 1rem;
+    @media (width > 375px) {
+        font-size: 0.813rem;
+        width: 7rem;
+    }
 `
 
 export const ContainerQuantity = styled.div`
@@ -46,19 +61,19 @@ export const ContainerQuantity = styled.div`
         padding: 0.25rem;
         border: 1px solid #BFBFBF;
         border-radius: var(--radius-sm);
-        label {
+        & label {
             bottom: calc(100% + 0.25rem);
             position: absolute;
             font-size: 0.4rem;
         }
-        input {
+        & input {
             text-align: center;
             font-size: 0.5rem;
             border: none;
             outline: none;
             width: 1rem;
         }
-        button {
+        & button {
             padding-inline: 0.3rem;
             display: flex;
             align-items: center;
@@ -70,6 +85,29 @@ export const ContainerQuantity = styled.div`
                 border-right: 1px solid #BFBFBF;
             }
         }
+        @media (width <= 375px) {
+            column-gap: 0.5rem;
+            height: 2.25rem;
+            & > input {
+                font-size: 1.25rem;
+            }
+            & > button {
+                padding-inline: 0.8rem;
+                font-size: 1.5rem;
+            }
+            & label {
+                display: none;
+            }
+        }
+    }
+`
+
+export const ContainerQuantityPrice = styled.div`
+    display: flex;
+    column-gap: 1.75rem;
+    align-items: center;
+    @media (width <= 375px) {
+        justify-content: space-between;
     }
 `
 
@@ -85,4 +123,12 @@ export const Price = styled.span`
     font-weight: 700;
     display: flex;
     align-items: center;
+    @media (width <= 375px) {
+        background-color: var(--text-secondary);
+        color: var(--text-primary);
+        font-size: 1rem;
+        padding: 0.6rem;
+        border-radius: var(--radius-sm);
+        font-weight: 700;
+    }
 `
