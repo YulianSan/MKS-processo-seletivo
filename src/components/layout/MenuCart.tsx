@@ -7,9 +7,10 @@ interface PropsMenuCart {
     children: React.ReactNode
     title: string
     action: string
+    total: number
 }
 
-export function MenuCart({ isOpen, close, title, action, children }: PropsMenuCart) {
+export function MenuCart({ isOpen, close, title, action, children, total }: PropsMenuCart) {
     return (
         <S.Container $isOpen={isOpen}>
             <S.Header>
@@ -22,7 +23,14 @@ export function MenuCart({ isOpen, close, title, action, children }: PropsMenuCa
                 {children}
             </S.Body>
             <S.Footer>
-                <span>{action}</span>
+                <div className="total">
+                    <span>Total</span>
+                    <span>{total.toLocaleString('pt-br', {
+                        currency: 'BRL',
+                        style: 'currency',
+                    })}</span>
+                </div>
+                <button className="action">{action}</button>
             </S.Footer>
         </S.Container>
     )

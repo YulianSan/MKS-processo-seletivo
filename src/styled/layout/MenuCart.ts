@@ -22,6 +22,8 @@ export const Body = styled.div`
     padding: 1.375rem;
     flex-direction: column;
     row-gap: 1.5rem;
+    max-height: calc(100% - 16.5rem);
+    overflow-y: scroll;
 `
 
 export const Header = styled.div`
@@ -50,17 +52,29 @@ export const Header = styled.div`
     }
 `
 
-export const Footer = styled.button`
-    position: absolute;
-    bottom: 0;
-    border: none;
-    display: block;
-    width: 100%;
-    background-color: #000000;
-    padding-block: 2.5rem;
-    font-weight: 700;
+export const Footer = styled.div`
     font-size: 1.75rem;
     color: var(--text-primary);
-    cursor: pointer;
-    text-align: center;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    & .total {
+        display: flex;
+        justify-content: space-between;
+        padding: 1.375rem;
+        width: 100%;
+        font-weight: 700;
+    }
+    & .action {
+        color: inherit;
+        width: inherit;
+        font-size: inherit;
+        border: none;
+        display: block;
+        background-color: #000000;
+        padding-block: 2rem;
+        font-weight: 700;
+        cursor: pointer;
+        text-align: center;
+    }
 `
