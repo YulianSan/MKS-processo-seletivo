@@ -6,7 +6,7 @@ import type { Metadata } from 'next'
 import Head from 'next/head'
 
 export const metadata: Metadata = {
-  title: 'MKS - ',
+  title: 'MKS',
   description: 'Loja MKS',
 }
 
