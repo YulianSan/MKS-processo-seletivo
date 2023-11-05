@@ -1,16 +1,27 @@
 import * as S from '@/styled/layout/MenuCart'
 import { ButtonClose } from '../Button/ButtonClose'
+import { useCartContext } from '@/contexts/CartContext'
+import { CardCart } from '../Card/CardCart'
 
 interface PropsMenuCart {
     isOpen: boolean
     close: () => void
-    children: React.ReactNode
     title: string
     action: string
-    total: number
+    products: IProductStorage[]
 }
 
-export function MenuCart({ isOpen, close, title, action, children, total }: PropsMenuCart) {
+export function MenuCart({ isOpen, close, title, action, products }: PropsMenuCart) {
+    const [removeProduct, updateQuantity] = useCartContext(status => [
+        status.removeProduct,
+        status.updateProductQuantity,
+    ])
+
+    const total = products.reduce(
+        (acc, product) =>
+            acc + (Number(product.price) * product.quantity)
+        , 0
+    )
     return (
         <S.Container $isOpen={isOpen}>
             <S.Header>
@@ -20,7 +31,15 @@ export function MenuCart({ isOpen, close, title, action, children, total }: Prop
                 <ButtonClose close={close} />
             </S.Header>
             <S.Body>
-                {children}
+                {products.length > 0 ? products.map(
+                    product => (
+                        <CardCart
+                            key={`${product.id}s`}
+                            removeProduct={removeProduct}
+                            setQuantity={updateQuantity}
+                            {...product} />
+                    ),
+                ) : 'Adicione um produto ao seu carrinho'}
             </S.Body>
             <S.Footer>
                 <div className="total">

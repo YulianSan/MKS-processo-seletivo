@@ -23,30 +23,16 @@ export function Header() {
                 </S.ContainerTitle>
                 <S.CartButton onClick={() => setIsOpen(true)}>
                     <FaShoppingCart />
-                    <span>0</span>
+                    <span>{products.length}</span>
                 </S.CartButton>
             </S.Container>
             <MenuCart
-                total={products.reduce(
-                    (acc, product) =>
-                        acc + (Number(product.price) * product.quantity)
-                    , 0
-                )}
+                products={products}
                 isOpen={isOpen}
                 close={() => setIsOpen(false)}
                 title="Carrinho de compras"
                 action="Finalizar Compra"
-            >
-                {products.map(
-                    product => (
-                        <CardCart
-                            key={`${product.id}s`}
-                            removeProduct={removeProduct}
-                            setQuantity={updateQuantity}
-                            {...product} />
-                    ),
-                )}
-            </MenuCart>
+            />
         </>
     )
 }
