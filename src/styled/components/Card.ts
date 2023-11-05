@@ -44,7 +44,7 @@ export const CardDescription = styled.div`
         background-color: var(--text-secondary);
         color: var(--text-primary);
         font-size: 0.938rem;
-        padding: 0.25rem;
+        padding: 0.4rem;
         border-radius: var(--radius-sm);
         font-weight: 700;
     }
