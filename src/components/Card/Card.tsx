@@ -42,7 +42,7 @@ export function Card({
 				</span>
 			</S.CardDescription>
 			<S.CardButton onClick={() =>
-				addToCart({ quantity: 0, description, name: title, id, price })}>
+				addToCart({ quantity: 1, description, title, id, price, image })}>
 				<FiShoppingBag />
 				COMPRAR
 			</S.CardButton>
