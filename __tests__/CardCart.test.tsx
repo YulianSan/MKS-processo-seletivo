@@ -1,4 +1,4 @@
-import { getByText, render, screen } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { CardCart } from '@/components/Card/CardCart';
 import { useCartContext } from '@/contexts/CartContext';
 import { useEffect } from 'react';
@@ -49,11 +49,43 @@ describe('Card Cart component', () => {
 
 		const productQuantity = screen.getByLabelText('Qte')
 
-		expect(productQuantity).toHaveValue('12')
-
 		user.type(productQuantity, '{home}-');
 		await screen.findByDisplayValue('1');
 
+		expect(productQuantity).toHaveValue('1')
+	})
+
+	it('should increment 1 the quantity', async () => {
+		const user = userEvent.setup()
+		render(
+			<TestZustand />,
+		)
+
+		const productQuantity = screen.getByLabelText('Qte')
+		const buttonIncrement = screen.getByText('+')
+
+		expect(productQuantity).toHaveValue('1')
+
+		user.click(buttonIncrement);
+
+		await screen.findByDisplayValue('2');
+		expect(productQuantity).toHaveValue('2')
+	})
+
+	it('should decrement 1 the quantity', async () => {
+		const user = userEvent.setup()
+		render(
+			<TestZustand />,
+		)
+
+		const productQuantity = screen.getByLabelText('Qte')
+		const buttonDecrement = screen.getByText('-')
+
+		expect(productQuantity).toHaveValue('2')
+
+		user.click(buttonDecrement);
+
+		await screen.findByDisplayValue('1');
 		expect(productQuantity).toHaveValue('1')
 	})
 })
