@@ -3,6 +3,7 @@ import { Card } from "@/components/Card/Card";
 import * as S from "@/components/layout/Main";
 import { useProducts } from "@/hooks/UseProducts";
 import { useCartContext } from '@/contexts/CartContext'
+import { CardLoader } from "@/components/Card/CardLoader";
 
 interface IResponse {
   products: IProduct[],
@@ -25,6 +26,9 @@ export default function Home() {
             description={card.description}
             price={card.price}
           />,
+        )}
+        {isLoading && Array.from({ length: 8 }, (_, i) => i).map(i =>
+          <CardLoader key={`${i}-s`} />
         )}
       </S.ListCards>
     </S.Main>
