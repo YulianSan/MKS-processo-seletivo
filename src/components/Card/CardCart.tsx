@@ -31,9 +31,10 @@ export function CardCart({
 			<S.ContainerQuantityPrice>
 				<S.ContainerQuantity>
 					<div className="input">
-						<label>Qte</label>
+						<label htmlFor='quantity'>Qte</label>
 						<button onClick={() => setQuantity(id, quantity - 1)}>-</button>
 						<input
+							id="quantity"
 							onChange={({ target: { value } }) => setQuantity(id, Number(value))}
 							value={quantity} />
 						<button onClick={() => setQuantity(id, quantity + 1)}>+</button>

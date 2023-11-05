@@ -3,14 +3,11 @@ import { FaShoppingCart } from 'react-icons/fa'
 import * as S from "@/styled/layout/Header"
 import { useState } from 'react';
 import { MenuCart } from './MenuCart';
-import { CardCart } from '../Card/CardCart';
 import { useCartContext } from '@/contexts/CartContext';
 
 export function Header() {
-    const [products, removeProduct, updateQuantity] = useCartContext(status => [
+    const [products] = useCartContext(status => [
         status.products,
-        status.removeProduct,
-        status.updateProductQuantity,
     ])
     const [isOpen, setIsOpen] = useState(false)
 
